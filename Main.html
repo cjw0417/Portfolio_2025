@@ -23,24 +23,27 @@
             <div class="corner bottom-right"></div>
 
             <div class="text-content">
-                <div class="box_text1">PortFolio by <span class="box_text2">조재우</span></div>
+                <div class="box_text1">Hello !</div>
             </div>
         </div>
     </div>
 
     <div id="pageWrap" class="page-wrap" style="display: none;">
         <div class="container">
-            <div class="contbox info">Publisher<br> Portfolio
+            <div class="contbox info">
+                <div class="info_tit">Publisher<br> Portfolio</div>
                 <div class="info_grid">
                     <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
                     <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
                     <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
                     <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
                 </div>
-                <div class="continue_info">Scroll down to Continue</div>
+                <div class="continue_info down">Scroll down to Continue</div>
+                <div class="continue_info up">Scroll up to Return</div>
+
             </div>
-            <div class="contbox chatbot">CHATBOT</div>
-            <div class="contbox hana">HANA MEMBERS APP RENEWAL</div>
+            <div class="contbox about_me">About Me</div>
+            <div class="contbox projects">Projects</div>
             <div class="contbox selfbank">SELF BANK APP LAUNCHING</div>
             <div class="contbox online1">ONLINE CHANNEL MAINTENANCE</div>
             <div class="contbox online2">ONLINE CHANNEL MAINTENANCE</div>
@@ -87,6 +90,9 @@
         let scrollStage = 0; // 0: 풀페이지, 1: 중앙 크기, 2: 원래 크기
         const infoBox = document.querySelector(".info");
         const boxes = document.querySelectorAll(".contbox:not(.info)"); // 메뉴 박스 제외
+        const infoUp = document.querySelector(".continue_info.up");
+        const infoDown = document.querySelector(".continue_info.down");
+
         let isScrolling = false;
 
         window.onload = () => {
@@ -144,9 +150,11 @@
             infoBox.style.width = "23vw";
             infoBox.style.height = "40vh";
             infoBox.style.left = "10px";
-            infoBox.style.top = "0";
+            infoBox.style.top = "10px";
             infoBox.style.transform = "translate(0, 0)";
             infoBox.style.zIndex = "1";
+            infoUp.style.display = "block";
+            infoDown.style.display = "none";
 
             // 나머지 박스들 부드럽게 등장
             boxes.forEach((contbox, index) => {
@@ -166,6 +174,8 @@
             infoBox.style.top = "0";
             infoBox.style.transform = "translate(0, 0)";
             infoBox.style.zIndex = "1000";
+            infoUp.style.display = "none";
+            infoDown.style.display = "block";
 
             // 다시 사라지게
             boxes.forEach((contbox) => {
