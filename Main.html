@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- box_animation -->
-    <div class="m4a_box">
+    <div class="main_box">
         <div class="box">
             <div class="line top-left"></div>
             <div class="line top-right"></div>
@@ -30,8 +30,13 @@
 
     <div id="pageWrap" class="page-wrap" style="display: none;">
         <div class="container">
-            <div class="contbox menu">
-                <span class="info_box">퍼블리셔(Publisher)<br> 조재우</span>
+            <div class="contbox info">Publisher<br> Portfolio
+                <div class="info_grid">
+                    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                </div>
             </div>
             <div class="contbox chatbot">CHATBOT</div>
             <div class="contbox hana">HANA MEMBERS APP RENEWAL</div>
@@ -64,7 +69,7 @@
 
         // 애니메이션 종료 시점
         setTimeout(() => {
-            const m4aBox = document.querySelector(".m4a_box");
+            const m4aBox = document.querySelector(".main_box");
             m4aBox.classList.add("fade-out"); // 서서히 사라지게 만듦
 
             setTimeout(() => {
@@ -79,17 +84,17 @@
        
    // 그리드 효과
         let scrollStage = 0; // 0: 풀페이지, 1: 중앙 크기, 2: 원래 크기
-        const menuBox = document.querySelector(".menu");
-        const boxes = document.querySelectorAll(".contbox:not(.menu)"); // 메뉴 박스 제외
+        const infoBox = document.querySelector(".info");
+        const boxes = document.querySelectorAll(".contbox:not(.info)"); // 메뉴 박스 제외
         let isScrolling = false;
 
         window.onload = () => {
-            menuBox.style.width = "100vw";
-            menuBox.style.height = "100vh";
-            menuBox.style.left = "0";
-            menuBox.style.top = "0";
-            menuBox.style.transform = "translate(0, 0)";
-            menuBox.style.zIndex = "1000";
+            infoBox.style.width = "100vw";
+            infoBox.style.height = "100vh";
+            infoBox.style.left = "0";
+            infoBox.style.top = "0";
+            infoBox.style.transform = "translate(0, 0)";
+            infoBox.style.zIndex = "1000";
         };
 
         window.addEventListener("wheel", (event) => {
@@ -123,24 +128,24 @@
 
         // 중앙 크기로 이동 (한 번에)
         function moveToCenter() {
-            menuBox.style.transition = "all 0.5s ease-out";
-            menuBox.style.width = "50vw";
-            menuBox.style.height = "50vh";
-            menuBox.style.left = "50%";
-            menuBox.style.top = "50%";
-            menuBox.style.transform = "translate(-50%, -50%)";
-            menuBox.style.zIndex = "1000";
+            infoBox.style.transition = "all 0.5s ease-out";
+            infoBox.style.width = "50vw";
+            infoBox.style.height = "50vh";
+            infoBox.style.left = "50%";
+            infoBox.style.top = "50%";
+            infoBox.style.transform = "translate(-50%, -50%)";
+            infoBox.style.zIndex = "1000";
         }
 
         // 원래 크기로 이동 (점진적 등장 애니메이션 포함)
         function moveToOriginalPosition() {
-            menuBox.style.transition = "all 0.5s ease-out";
-            menuBox.style.width = "24.5vw";
-            menuBox.style.height = "70vh";
-            menuBox.style.left = "0";
-            menuBox.style.top = "0";
-            menuBox.style.transform = "translate(0, 0)";
-            menuBox.style.zIndex = "1";
+            infoBox.style.transition = "all 0.5s ease-out";
+            infoBox.style.width = "23vw";
+            infoBox.style.height = "40vh";
+            infoBox.style.left = "10px";
+            infoBox.style.top = "0";
+            infoBox.style.transform = "translate(0, 0)";
+            infoBox.style.zIndex = "1";
 
             // 나머지 박스들 부드럽게 등장
             boxes.forEach((contbox, index) => {
@@ -153,13 +158,13 @@
 
         // 풀페이지로 확대
         function moveToFullPage() {
-            menuBox.style.transition = "all 0.5s ease-out";
-            menuBox.style.width = "100vw";
-            menuBox.style.height = "100vh";
-            menuBox.style.left = "0";
-            menuBox.style.top = "0";
-            menuBox.style.transform = "translate(0, 0)";
-            menuBox.style.zIndex = "1000";
+            infoBox.style.transition = "all 0.5s ease-out";
+            infoBox.style.width = "100vw";
+            infoBox.style.height = "100vh";
+            infoBox.style.left = "0";
+            infoBox.style.top = "0";
+            infoBox.style.transform = "translate(0, 0)";
+            infoBox.style.zIndex = "1000";
 
             // 다시 사라지게
             boxes.forEach((contbox) => {
