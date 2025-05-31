@@ -654,8 +654,12 @@ body {
     animation-delay: 1.5s;
 }
 
-@keyframes wave {
+.continue_info {
+    text-align: center;
+    font-size: 1rem;
+}
 
+@keyframes wave {
     0%,
     100% {
         transform: translateY(0);
